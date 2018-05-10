@@ -6,11 +6,13 @@ var q = require("q"); // Promises package Node.js
 *    few times, the order is irrelevant and we don't care about
 *    control over them at the moment.
 **/
-/*dumb_async_api.async1();
+/*
+dumb_async_api.async1();
 dumb_async_api.async2();
 dumb_async_api.async3();
 dumb_async_api.async4();
-dumb_async_api.async5();*/
+dumb_async_api.async5();
+*/
 
 /**
 * Exercise 2:
@@ -34,6 +36,29 @@ dumb_async_api.async5();*/
  **/
 var result_str = "";
 
+/*
+dumb_async_api.async1promisified()
+	.then(function(value){
+		result_str += value + ", ";
+		return dumb_async_api.async2promisified();
+
+	}).then(function (value) {
+		result_str += value + ", ";
+    	return dumb_async_api.async3promisified();
+
+	}).then(function (value) {
+		result_str += value + ", ";
+    	return dumb_async_api.async4promisified();
+
+	}).then(function (value) {
+    	result_str += value;
+    	return dumb_async_api.async5promisified();
+    	console.log(result_str);
+
+	}).catch(function (error) {
+		alert(error);
+	});
+*/
 
 /**
  * Exercise 4:

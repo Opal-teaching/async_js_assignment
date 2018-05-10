@@ -9,7 +9,12 @@ module.exports = {
 	async2:async2,
 	async3:async3,
 	async4:async4,
-	async5:async5
+	async5:async5,
+    async1promisified:async1promisified,
+    async2promisified:async2promisified,
+    async3promisified:async3promisified,
+    async4promisified:async4promisified,
+    async5promisified:async5promisified
 };
 
 /**
@@ -67,10 +72,11 @@ function async5()
  * @desc Promisified version of async1
  */
 function async1promisified() {
-	var deferred = $q.defer();
+	var deferred = q.defer();
 
     setTimeout(function(){
         console.log("async1");
+        deferred.resolve("async1");
     },5*Math.random());
 
 	return deferred.promise;
@@ -80,10 +86,11 @@ function async1promisified() {
  * @desc Promisified version of async2
  */
 function async2promisified() {
-    var deferred = $q.defer();
+    var deferred = q.defer();
 
     setTimeout(function(){
         console.log("async2");
+        deferred.resolve("async2");
     },5*Math.random());
 
     return deferred.promise;
@@ -93,10 +100,11 @@ function async2promisified() {
  * @desc Promisified version of async3
  */
 function async3promisified() {
-    var deferred = $q.defer();
+    var deferred = q.defer();
 
     setTimeout(function(){
         console.log("async3");
+        deferred.resolve("async3");
     },5*Math.random());
 
     return deferred.promise;
@@ -106,10 +114,11 @@ function async3promisified() {
  * @desc Promisified version of async4
  */
 function async4promisified() {
-    var deferred = $q.defer();
+    var deferred = q.defer();
 
     setTimeout(function(){
         console.log("async4");
+        deferred.resolve("async4");
     },5*Math.random());
 
     return deferred.promise;
@@ -119,10 +128,11 @@ function async4promisified() {
  * @desc Promisified version of async5
  */
 function async5promisified() {
-    var deferred = $q.defer();
+    var deferred = q.defer();
 
     setTimeout(function(){
         console.log("async5");
+        deferred.resolve("async5");
     },5*Math.random());
 
     return deferred.promise;
