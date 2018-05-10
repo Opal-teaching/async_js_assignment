@@ -106,6 +106,7 @@ q.all(promiseArray)
  * printing to the console 'done' after they are all finished.
  **/
 
+/*
 var promiseArray = [];
 var result_str = "";
 
@@ -133,6 +134,7 @@ dumb_async_api.async1promisified()
 	}).catch(function (error) {
 		alert(error);
 	});
+*/
 
 /**
  * Exercise 6:
@@ -143,6 +145,7 @@ dumb_async_api.async1promisified()
  * @name async6promisified
  * @desc Async function, rejects error randomly, given a parameter
  */
+
 function async6promisified(param)
 {
 	var deferred = q.defer();
@@ -156,4 +159,18 @@ function async6promisified(param)
 	return deferred.promise;
 }
 
+/*
+async6promisified(2)
+    .then(function(value){
+		console.log(value);
+	}).catch(function (error) {
+		alert(error);
+	});
 
+async6promisified(-2)
+    .then(function(value){
+        console.log(value);
+    }).catch(function (error) {
+		console.log(error.message);
+	});
+*/
