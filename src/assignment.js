@@ -72,6 +72,33 @@ dumb_async_api.async1promisified()
  * Expected Output: "async1, async2, async3, async4, async5"
  **/
 
+/*
+var promiseArray = [];
+var result_str_4 = "";
+
+promiseArray.push(dumb_async_api.async1promisified());
+promiseArray.push(dumb_async_api.async2promisified());
+promiseArray.push(dumb_async_api.async3promisified());
+promiseArray.push(dumb_async_api.async4promisified());
+promiseArray.push(dumb_async_api.async5promisified());
+
+q.all(promiseArray)
+	.then(function(values) {
+		for(let i=0; i<values.length; i++){
+			if(i===0){
+				result_str_4 += values[i];
+			}
+			else{
+                result_str_4 += (", "+values[i]);
+			}
+		}
+        console.log(result_str_4);
+		console.log("done");
+    }).catch(function (error) {
+    	alert(error);
+	});
+*/
+
 /**
  * Exercise 5:
  * Use your current promisify API functions,
