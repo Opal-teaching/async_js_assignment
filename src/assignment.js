@@ -106,6 +106,33 @@ q.all(promiseArray)
  * printing to the console 'done' after they are all finished.
  **/
 
+var promiseArray = [];
+var result_str = "";
+
+dumb_async_api.async1promisified()
+	.then(function(value){
+        result_str += value;
+
+        promiseArray.push(dumb_async_api.async2promisified());
+        promiseArray.push(dumb_async_api.async3promisified());
+        promiseArray.push(dumb_async_api.async4promisified());
+        promiseArray.push(dumb_async_api.async5promisified());
+
+		return q.all(promiseArray);
+
+	}).then(function (values) {
+
+		for(let i=0; i<values.length; i++){
+			result_str += (", "+values[i]);
+		}
+
+		console.log("done");
+		console.log(result_str);
+
+
+	}).catch(function (error) {
+		alert(error);
+	});
 
 /**
  * Exercise 6:
