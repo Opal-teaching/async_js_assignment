@@ -51,8 +51,11 @@ dumb_async_api.async1promisified()
     	return dumb_async_api.async4promisified();
 
 	}).then(function (value) {
-    	result_str += value;
+    	result_str += value + ", ";
     	return dumb_async_api.async5promisified();
+
+	}).then(function (value) {
+    	result_str += value;
     	console.log(result_str);
 
 	}).catch(function (error) {
