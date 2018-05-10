@@ -6,7 +6,11 @@ var q = require("q"); // Promises package Node.js
 *    few times, the order is irrelevant and we don't care about
 *    control over them at the moment.
 **/
-
+dumb_async_api.async1();
+dumb_async_api.async2();
+dumb_async_api.async3();
+dumb_async_api.async4();
+dumb_async_api.async5();
 
 /**
 * Exercise 2:
