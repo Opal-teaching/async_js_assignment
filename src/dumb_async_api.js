@@ -62,5 +62,68 @@ function async5()
 		console.log("async5");
 	},5*Math.random());
 }
+/**
+ * @name async1promisified
+ * @desc Promisified version of async1
+ */
+function async1promisified() {
+	var deferred = $q.defer();
 
+    setTimeout(function(){
+        console.log("async1");
+    },5*Math.random());
 
+	return deferred.promise;
+}
+/**
+ * @name async2promisified
+ * @desc Promisified version of async2
+ */
+function async2promisified() {
+    var deferred = $q.defer();
+
+    setTimeout(function(){
+        console.log("async2");
+    },5*Math.random());
+
+    return deferred.promise;
+}
+/**
+ * @name async3promisified
+ * @desc Promisified version of async3
+ */
+function async3promisified() {
+    var deferred = $q.defer();
+
+    setTimeout(function(){
+        console.log("async3");
+    },5*Math.random());
+
+    return deferred.promise;
+}
+/**
+ * @name async4promisified
+ * @desc Promisified version of async4
+ */
+function async4promisified() {
+    var deferred = $q.defer();
+
+    setTimeout(function(){
+        console.log("async4");
+    },5*Math.random());
+
+    return deferred.promise;
+}
+/**
+ * @name async5promisified
+ * @desc Promisified version of async5
+ */
+function async5promisified() {
+    var deferred = $q.defer();
+
+    setTimeout(function(){
+        console.log("async5");
+    },5*Math.random());
+
+    return deferred.promise;
+}

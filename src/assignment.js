@@ -20,6 +20,7 @@ dumb_async_api.async5();
  *   deferred.resolve('async1') for instance.
 * */
 
+/** Done */
 
 /**
  * Exercise 3:
