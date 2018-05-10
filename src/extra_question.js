@@ -9,3 +9,8 @@ var q = require("q");
  *
  *
  **/
+/**
+ * @name qAll
+ * @param {Array<Unresolved Promise>} promises
+ * @returns {*|PromiseLike<any>}
+ */
