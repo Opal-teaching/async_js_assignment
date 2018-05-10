@@ -1,18 +1,21 @@
 var dumb_async_api = require("./dumb_async_api"); // Async API
 var q = require("q"); // Promises package Node.js
 
+// PICK WHICH EXERCISE TO RUN HERE
+exercise_6();
+
 /* Exercise: 1
 *    Execute all the functions offered by the 'dumb_async_api' module a
 *    few times, the order is irrelevant and we don't care about
 *    control over them at the moment.
 **/
-/*
-dumb_async_api.async1();
-dumb_async_api.async2();
-dumb_async_api.async3();
-dumb_async_api.async4();
-dumb_async_api.async5();
-*/
+function exercise_1() {
+    dumb_async_api.async1();
+    dumb_async_api.async2();
+    dumb_async_api.async3();
+    dumb_async_api.async4();
+    dumb_async_api.async5();
+}
 
 /**
 * Exercise 2:
@@ -34,34 +37,37 @@ dumb_async_api.async5();
  * Note: If you want to catch the error with only one catch clause,
  * return the next promise as you progress through the promises.
  **/
-var result_str = "";
 
-/*
-dumb_async_api.async1promisified()
-	.then(function(value){
-		result_str += value + ", ";
-		return dumb_async_api.async2promisified();
+function exercise_3() {
 
-	}).then(function (value) {
-		result_str += value + ", ";
-    	return dumb_async_api.async3promisified();
+    var result_str = "";
 
-	}).then(function (value) {
-		result_str += value + ", ";
-    	return dumb_async_api.async4promisified();
 
-	}).then(function (value) {
-    	result_str += value + ", ";
-    	return dumb_async_api.async5promisified();
+    dumb_async_api.async1promisified()
+        .then(function (value) {
+            result_str += value + ", ";
+            return dumb_async_api.async2promisified();
 
-	}).then(function (value) {
-    	result_str += value;
-    	console.log(result_str);
+        }).then(function (value) {
+        result_str += value + ", ";
+        return dumb_async_api.async3promisified();
 
-	}).catch(function (error) {
-		alert(error);
-	});
-*/
+		}).then(function (value) {
+			result_str += value + ", ";
+			return dumb_async_api.async4promisified();
+
+		}).then(function (value) {
+			result_str += value + ", ";
+			return dumb_async_api.async5promisified();
+
+		}).then(function (value) {
+			result_str += value;
+			console.log(result_str);
+
+		}).catch(function (error) {
+			alert(error);
+		});
+}
 
 /**
  * Exercise 4:
@@ -72,32 +78,33 @@ dumb_async_api.async1promisified()
  * Expected Output: "async1, async2, async3, async4, async5"
  **/
 
-/*
-var promiseArray = [];
-var result_str = "";
+function exercise_4() {
 
-promiseArray.push(dumb_async_api.async1promisified());
-promiseArray.push(dumb_async_api.async2promisified());
-promiseArray.push(dumb_async_api.async3promisified());
-promiseArray.push(dumb_async_api.async4promisified());
-promiseArray.push(dumb_async_api.async5promisified());
+    var promiseArray = [];
+    var result_str = "";
 
-q.all(promiseArray)
-	.then(function(values) {
-		for(let i=0; i<values.length; i++){
-			if(i===0){
-				result_str += values[i];
-			}
-			else{
-                result_str += (", "+values[i]);
-			}
-		}
-        console.log(result_str);
-		console.log("done");
-    }).catch(function (error) {
-    	alert(error);
-	});
-*/
+    promiseArray.push(dumb_async_api.async1promisified());
+    promiseArray.push(dumb_async_api.async2promisified());
+    promiseArray.push(dumb_async_api.async3promisified());
+    promiseArray.push(dumb_async_api.async4promisified());
+    promiseArray.push(dumb_async_api.async5promisified());
+
+    q.all(promiseArray)
+        .then(function (values) {
+            for (let i = 0; i < values.length; i++) {
+                if (i === 0) {
+                    result_str += values[i];
+                }
+                else {
+                    result_str += (", " + values[i]);
+                }
+            }
+            console.log(result_str);
+            console.log("done");
+        }).catch(function (error) {
+        	alert(error);
+    	});
+}
 
 /**
  * Exercise 5:
@@ -106,35 +113,35 @@ q.all(promiseArray)
  * printing to the console 'done' after they are all finished.
  **/
 
-/*
-var promiseArray = [];
-var result_str = "";
+function exercise_5() {
 
-dumb_async_api.async1promisified()
-	.then(function(value){
-        result_str += value;
+    var promiseArray = [];
+    var result_str = "";
 
-        promiseArray.push(dumb_async_api.async2promisified());
-        promiseArray.push(dumb_async_api.async3promisified());
-        promiseArray.push(dumb_async_api.async4promisified());
-        promiseArray.push(dumb_async_api.async5promisified());
+    dumb_async_api.async1promisified()
+        .then(function (value) {
+            result_str += value;
 
-		return q.all(promiseArray);
+            promiseArray.push(dumb_async_api.async2promisified());
+            promiseArray.push(dumb_async_api.async3promisified());
+            promiseArray.push(dumb_async_api.async4promisified());
+            promiseArray.push(dumb_async_api.async5promisified());
 
-	}).then(function (values) {
+            return q.all(promiseArray);
 
-		for(let i=0; i<values.length; i++){
-			result_str += (", "+values[i]);
-		}
+        }).then(function (values) {
 
-		console.log("done");
-		console.log(result_str);
+        for (let i = 0; i < values.length; i++) {
+            result_str += (", " + values[i]);
+        }
 
+        console.log("done");
+        console.log(result_str);
 
-	}).catch(function (error) {
-		alert(error);
-	});
-*/
+		}).catch(function (error) {
+			alert(error);
+		});
+}
 
 /**
  * Exercise 6:
@@ -159,18 +166,18 @@ function async6promisified(param)
 	return deferred.promise;
 }
 
-/*
-async6promisified(2)
-    .then(function(value){
-		console.log(value);
-	}).catch(function (error) {
-		alert(error);
-	});
+function exercise_6() {
+    async6promisified(2)
+        .then(function (value) {
+            console.log(value);
+        }).catch(function (error) {
+        	alert(error);
+        });
 
-async6promisified(-2)
-    .then(function(value){
-        console.log(value);
-    }).catch(function (error) {
-		console.log(error.message);
-	});
-*/
+    async6promisified(-2)
+        .then(function (value) {
+            console.log(value);
+        }).catch(function (error) {
+        	console.log(error.message);
+        });
+}
