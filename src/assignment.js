@@ -6,11 +6,11 @@ var q = require("q"); // Promises package Node.js
 *    few times, the order is irrelevant and we don't care about
 *    control over them at the moment.
 **/
-dumb_async_api.async1();
+/*dumb_async_api.async1();
 dumb_async_api.async2();
 dumb_async_api.async3();
 dumb_async_api.async4();
-dumb_async_api.async5();
+dumb_async_api.async5();*/
 
 /**
 * Exercise 2:
@@ -33,6 +33,8 @@ dumb_async_api.async5();
  * return the next promise as you progress through the promises.
  **/
 var result_str = "";
+
+
 /**
  * Exercise 4:
  * Use your current promisify API functions,
