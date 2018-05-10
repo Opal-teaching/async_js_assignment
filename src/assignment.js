@@ -74,7 +74,7 @@ dumb_async_api.async1promisified()
 
 /*
 var promiseArray = [];
-var result_str_4 = "";
+var result_str = "";
 
 promiseArray.push(dumb_async_api.async1promisified());
 promiseArray.push(dumb_async_api.async2promisified());
@@ -86,13 +86,13 @@ q.all(promiseArray)
 	.then(function(values) {
 		for(let i=0; i<values.length; i++){
 			if(i===0){
-				result_str_4 += values[i];
+				result_str += values[i];
 			}
 			else{
-                result_str_4 += (", "+values[i]);
+                result_str += (", "+values[i]);
 			}
 		}
-        console.log(result_str_4);
+        console.log(result_str);
 		console.log("done");
     }).catch(function (error) {
     	alert(error);
