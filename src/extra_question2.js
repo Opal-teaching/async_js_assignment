@@ -14,6 +14,14 @@
    },2000);
    console.log("c");
  }
+
+ /**
+  * stack from bottom to top: async(), console.log("a"), setTimeout(), console.log("c")
+  * queue: anonymous function from setTimeout, once stack is empty, it will be pushed to the stack to be executed.
+  * console.log("a") gets executed first, then setTimeOut(), but the callback function is put in the queue for later execution
+  * then console.log("c") is executed, when finished the anonymous function is brought from queue to stack and executed.
+  */
+
 /**
  * Exercise 9:
  * Consider the following event emitter and listener function, convert the 
