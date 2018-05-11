@@ -191,6 +191,10 @@ function async6promisified(param)
     return deferred.promise;
 }
 
-async6promisified(11);
-async6promisified(5);
+async6promisified(11).catch(function(err){
+    console.log(err.toString());
+})
+async6promisified(5).then(function(response){
+    console.log(response);
+})
 
