@@ -168,7 +168,6 @@ function ex5() {
 function ex6(){
     // success case
     async6promisified(9).then(function(value){
-        console.log('test2');
         console.log(value);
     }).catch(function(error){
         console.log('error');
@@ -177,7 +176,6 @@ function ex6(){
     async6promisified(20).then(function(value){
         console.log(value);
     }).catch(function(error){
-        console.log('test1');
         console.log('error');
     });
 }
