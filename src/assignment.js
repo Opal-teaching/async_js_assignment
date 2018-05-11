@@ -6,7 +6,8 @@ var q = require("q"); // Promises package Node.js
 // ex2();
 // ex3();
 // ex4();
-ex5();
+// ex5();
+ex6();
 
 /* Exercise: 1
 *    Execute all the functions offered by the 'dumb_async_api' module a
@@ -163,6 +164,24 @@ function ex5() {
  * @name async6promisified
  * @desc Async function, rejects error randomly, given a parameter
  */
+
+function ex6(){
+    // success case
+    async6promisified(9).then(function(value){
+        console.log('test2');
+        console.log(value);
+    }).catch(function(error){
+        console.log('error');
+    });
+    // error case
+    async6promisified(20).then(function(value){
+        console.log(value);
+    }).catch(function(error){
+        console.log('test1');
+        console.log('error');
+    });
+}
+
 function async6promisified(param)
 {
 	var deferred = q.defer();
