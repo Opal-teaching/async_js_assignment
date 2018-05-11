@@ -7,13 +7,20 @@ var q = require("q"); // Promises package Node.js
 // ex3();
 // ex4();
 // ex5();
-ex6();
+//ex6();
 
 /* Exercise: 1
 *    Execute all the functions offered by the 'dumb_async_api' module a
 *    few times, the order is irrelevant and we don't care about
 *    control over them at the moment.
 **/
+module.exports = {
+    async1promisified,
+    async2promisified,
+    async3promisified,
+    async4promisified,
+    async5promisified
+};
 
 function ex1(){
     dumb_async_api.async1();

@@ -30,43 +30,49 @@ qAll(s.async1promisified(), s.async2promisified(), s.async3promisified(), s.asyn
 //     });
 // }
 
-function qAll(async1, async2, async3, async4, async5) {
-    //var arr = [async1, async2, async3, async4, async5];
+function qAll(a, b, c, d, e) {
+    var arr = [a, b, c, d, e];
     var i = 0;
-    async1.then(function(){
+    console.log(i);
+    a.then(function(){
         i += 1;
+        console.log(i);
         if(i=5) {
             return arr.promise;
         }
     }).catch(function(error){
        console.log('error for async1');
     });
-    async2.then(function(){
+    b.then(function(){
         i += 1;
+        console.log(i);
         if(i=5) {
             return arr.promise;
         }
     }).catch(function(error){
         console.log('error for async2');
     });
-    async3.then(function(){
+    c.then(function(){
         i += 1;
+        console.log(i);
         if(i=5) {
             return arr.promise;
         }
     }).catch(function(error){
         console.log('error for async3');
     });
-    async4.then(function(){
+    d.then(function(){
         i += 1;
+        console.log(i);
         if(i=5) {
             return arr.promise;
         }
     }).catch(function(error){
         console.log('error for async4');
     });
-    async5.then(function(){
+    e.then(function(){
         i += 1;
+        console.log(i);
         if(i=5) {
             return arr.promise;
         }
