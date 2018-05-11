@@ -14,6 +14,16 @@
    },2000);
    console.log("c");
  }
+ /*
+ 1. async() is pushed onto execution stack.
+ 2. console.log("a") is pushed onto execution stack. Then it's popped off the stack immediately after printing a
+ 3. setTime(function) is queued into message queue
+ 4. console.log("c") is pushed onto execution stack. Then it's popped off the stack immediately after printing c
+ 5. async() is popped off the stack
+ 6. The event handler sees that the execution stack is empty, so it pushes console.log("b"). Then it gets popped off
+    the stack after printing b.
+  */
+
 /**
  * Exercise 9:
  * Consider the following event emitter and listener function, convert the 
