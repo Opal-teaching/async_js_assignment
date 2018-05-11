@@ -3,11 +3,11 @@ var q = require("q"); // Promises package Node.js
 
 /** Execute the following functions corresponding to the exercises and look at the results in the console **/
 // ex1();
- ex2();
+// ex2();
 // ex3();
 // ex4();
 // ex5();
-//ex6();
+ex6();
 
 /* Exercise: 1
 *    Execute all the functions offered by the 'dumb_async_api' module a

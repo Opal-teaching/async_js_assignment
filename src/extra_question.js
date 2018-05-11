@@ -1,7 +1,7 @@
-var s = require("./dumb_async_api"); // Async API
+var s = require("./assignment");
 var q = require("q");
 
-qAll(s.async1promissified, s.async2promissified, s.async3promissified, s.async4promissified, s.async5promissified);
+qAll(s.async1promisified(), s.async2promisified(), s.async3promisified(), s.async4promisified(), s.async5promisified());
 
 /**
  *  Exercise 7:
@@ -66,11 +66,11 @@ function qAll(async1, async2, async3, async4, async5) {
         console.log('error for async4');
     });
     async5.then(function(){
-        i += 1;if(i=5) {
+        i += 1;
+        if(i=5) {
             return arr.promise;
         }
     }).catch(function(error){
         console.log('error for async5');
     });
-
 }
