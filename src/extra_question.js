@@ -9,10 +9,12 @@ var q = require("q");
  *
  *
  **/
+
 /**
  * @name qAll
- * @param {Array<Unresolved Promise>} promises
- * @returns {*|PromiseLike<any>}
+ * @method qAll
+ * @param {Array<Promise>} promiseArray
+ * @returns {Array<Promise>} an array of fulfilled promises
  */
 function qAll(promiseArray) {
     var deferred = q.defer();

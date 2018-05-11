@@ -124,7 +124,9 @@ var q = require("q"); // Promises package Node.js
  */
 /**
  * @name async6promisified
+ * @method async6promisified
  * @desc Async function, rejects error randomly, given a parameter
+ * @return {Promise} fulfilled promise
  */
 function async6promisified(param)
 {

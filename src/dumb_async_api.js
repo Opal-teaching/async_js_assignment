@@ -19,6 +19,7 @@ module.exports = {
 
 /**
  * @name async1
+ * @method async1
  * @desc Dumb async function, prints "async1" randomly
  */
 function async1()
@@ -30,9 +31,10 @@ function async1()
 
 /**
  * @name async1promisified
- * @desc promisfying async1() function
+ * @method async1promisified
+ * @desc async1() function is promisified
+ * @returns {Promise} fulfilled promise
  */
-
 function async1promisified()
 {
 	var deferred = q.defer();
@@ -45,6 +47,7 @@ function async1promisified()
 
 /**
  * @name async2
+ * @method async2
  * @desc Dumb async function, prints "async2" randomly
  */
 function async2()
@@ -56,9 +59,10 @@ function async2()
 
 /**
  * @name async2promisified
- * @desc promisfying async2() function
+ * @method async2promisified
+ * @desc async2() function is promisified
+ * @return {Promise} fulfilled promise
  */
-
 function async2promisified()
 {
     var deferred = q.defer();
@@ -70,6 +74,7 @@ function async2promisified()
 }
 /**
  * @name async3
+ * @method async3
  * @desc Dumb async function, prints "async3" randomly
  */
 function async3()
@@ -81,9 +86,10 @@ function async3()
 
 /**
  * @name async3promisified
- * @desc promisfying async3() function
+ * @method async3promisified
+ * @desc async3() function is promisified
+ * @return {Promise} fulfilled promise
  */
-
 function async3promisified()
 {
     var deferred = q.defer();
@@ -95,6 +101,7 @@ function async3promisified()
 }
 /**
  * @name async4
+ * @method async4
  * @desc Dumb async function, prints "async4" randomly
  */
 function async4()
@@ -106,9 +113,10 @@ function async4()
 
 /**
  * @name async4promisified
- * @desc promisfying async4() function
+ * @method async4promisified
+ * @desc async4() function is promisified
+ * @return {Promise} fulfilled promise
  */
-
 function async4promisified()
 {
     var deferred = q.defer();
@@ -120,6 +128,7 @@ function async4promisified()
 }
 /**
  * @name async5
+ * @method async5
  * @desc Dumb async function, prints "async5" randomly
  */
 function async5()
@@ -131,9 +140,10 @@ function async5()
 
 /**
  * @name async5promisified
- * @desc promisfying async5() function
+ * @method async5promisified
+ * @desc async5() function is promisified
+ * @return {Promise} fulfilled promise
  */
-
 function async5promisified()
 {
     var deferred = q.defer();
