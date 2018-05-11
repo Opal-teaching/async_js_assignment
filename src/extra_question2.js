@@ -15,11 +15,14 @@
    console.log("c");
  }
 
+ // async();
+
  /**
-  * stack from bottom to top: async(), console.log("a"), setTimeout(), console.log("c")
-  * queue: anonymous function from setTimeout, once stack is empty, it will be pushed to the stack to be executed.
-  * console.log("a") gets executed first, then setTimeOut(), but the callback function is put in the queue for later execution
-  * then console.log("c") is executed, when finished the anonymous function is brought from queue to stack and executed.
+  * console.log("a") is first put on the stack, then executed, and popped off the stack
+  * then setTimeout is called, and it places its callback function on the stack and returns to the current execution context.
+  * then console.log("c") is added to the stack, and executed, and popped off the stack
+  * when the stack is empty, the callback function of async is popped from the queue, and place on the stack
+  * It then gets executed, and removed from the stack.
   */
 
 /**
@@ -33,11 +36,11 @@
 var MyEventEmitter = require('./myEmitter');
 const myEmitter = new MyEventEmitter();
 // TODO: Create a function that promisifies the event listener.
-// 
-// 
+//
+//
 myEmitter.on('event', function(error, data){
-    // Handle 
+    // Handle
 });
-myEmitter.emit('event',null,{"message":"Hello!"}); 
+myEmitter.emit('event',null,{"message":"Hello!"});
 myEmitter.emit('event',new Error("An error occurred"),null);
 
