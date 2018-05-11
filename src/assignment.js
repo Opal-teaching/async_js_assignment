@@ -5,8 +5,15 @@ var q = require("q"); // Promises package Node.js
 *    Execute all the functions offered by the 'dumb_async_api' module a
 *    few times, the order is irrelevant and we don't care about
 *    control over them at the moment.
+*
 **/
-
+(function() {
+    dumb_async_api.async1();
+    dumb_async_api.async2();
+    dumb_async_api.async3();
+    dumb_async_api.async4();
+    dumb_async_api.async5();
+})();
 
 /**
 * Exercise 2:
@@ -27,7 +34,35 @@ var q = require("q"); // Promises package Node.js
  * Note: If you want to catch the error with only one catch clause,
  * return the next promise as you progress through the promises.
  **/
-var result_str = "";
+
+(function() {
+    var result_str = "";
+    dumb_async_api.async1promisified()
+        .then(text => {
+            result_str = result_str + text + ", ";
+            return dumb_async_api.async2promisified();
+        })
+        .then(text => {
+            result_str = result_str + text + ", ";
+            return dumb_async_api.async3promisified();
+        })
+        .then(text => {
+            result_str = result_str + text + ", ";
+            return dumb_async_api.async4promisified();
+        })
+        .then(text => {
+            result_str = result_str + text + ", ";
+            return dumb_async_api.async5promisified();
+        })
+        .then(text => {
+            result_str = result_str + text + ".";
+            console.log(result_str);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+})();
+
 /**
  * Exercise 4:
  * Use your current promisify API functions,
@@ -37,6 +72,23 @@ var result_str = "";
  * Expected Output: "async1, async2, async3, async4, async5"
  **/
 
+(function() {
+    var promiseArray = [];
+    var result_str = "";
+    promiseArray.push(dumb_async_api.async1promisified());
+    promiseArray.push(dumb_async_api.async2promisified());
+    promiseArray.push(dumb_async_api.async3promisified());
+    promiseArray.push(dumb_async_api.async4promisified());
+    promiseArray.push(dumb_async_api.async5promisified());
+    q.all(promiseArray).then(function(texts){
+        texts.forEach(function(text){
+            result_str = result_str + text + ', ';
+        });
+        console.log(result_str);
+        console.log('done');
+    });
+})();
+
 /**
  * Exercise 5:
  * Use your current promisify API functions,
@@ -44,6 +96,26 @@ var result_str = "";
  * printing to the console 'done' after they are all finished.
  **/
 
+(function() {
+    var promiseArray = [];
+    var result_str = "";
+    dumb_async_api.async1promisified()
+        .then(text => {
+            result_str = text + ", ";
+            promiseArray.push(dumb_async_api.async2promisified());
+            promiseArray.push(dumb_async_api.async3promisified());
+            promiseArray.push(dumb_async_api.async4promisified());
+            promiseArray.push(dumb_async_api.async5promisified());
+            return q.all(promiseArray);
+        })
+        .then(textArray => {
+            textArray.forEach(elem => {
+                result_str = result_str + elem + ", "
+            });
+            console.log(result_str);
+            console.log('done');
+        });
+})();
 
 /**
  * Exercise 6:
@@ -66,5 +138,15 @@ function async6promisified(param)
 	},5*Math.random());
 	return deferred.promise;
 }
+
+async6promisified(-1)
+	.catch(error => {
+		console.log(error.toString());
+	});
+
+async6promisified(5)
+	.then(text => {
+		console.log(text);
+	});
 
 
