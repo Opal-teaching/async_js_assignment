@@ -54,7 +54,18 @@ console.log(numPromisesComplete);
         })(i);
     }
 
-    while(numPromisesComplete<numPromises){/*console.log(numPromisesComplete)*/} // Wait for all the promises to complete.
+    //while(numPromisesComplete<numPromises){/*console.log(numPromisesComplete)*/} // Wait for all the promises to complete.
+
+    // Check every 100 ms to see if the promises are all done.
+    var int = setInterval(function(){
+console.log("check");
+console.log(numPromisesComplete +" "+numPromises);
+        if(numPromisesComplete >= numPromises){
+console.log("in");
+
+            clearInterval(int);
+        }
+    }, 500);
 
     deferred.resolve(values);
     return deferred;
@@ -72,7 +83,9 @@ function exercise_7(){
     promiseArray.push(s.async4promisified());
     promiseArray.push(s.async5promisified());
 
-    qAll(promiseArray)
+    qAll(promiseArray).then(function (values) {});
+
+    /*qAll(promiseArray)
         .then(function (values) {
             for (let i = 0; i < values.length; i++) {
                 if (i === 0) {
@@ -85,6 +98,6 @@ function exercise_7(){
             console.log(result_str);
             console.log("done");
         }).catch(function (error) {
-        alert(error);
-    });
+            alert(error);
+        });*/
 }
