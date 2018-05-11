@@ -1,6 +1,7 @@
 var s = require("./dumb_async_api"); // Async API
 var q = require("q");
 
+qAll(s.async1promissified, s.async2promissified, s.async3promissified, s.async4promissified, s.async5promissified);
 
 /**
  *  Exercise 7:
@@ -14,3 +15,62 @@ var q = require("q");
  * @param {Array<Unresolved Promise>} promises
  * @returns {*|PromiseLike<any>}
  */
+
+// function qAll(arr){
+//     var res_arr = [];
+//     var counter = 0;
+//     arr.forEach(function(promise, i){
+//         (function(ind){
+//             promise.then(function(res){
+//                 res_arr[ind] = res;
+//                 counter ++;
+//                 if(counter === arr.length) deferred.resolve(res_arr);
+//             });
+//         })(i);
+//     });
+// }
+
+function qAll(async1, async2, async3, async4, async5) {
+    //var arr = [async1, async2, async3, async4, async5];
+    var i = 0;
+    async1.then(function(){
+        i += 1;
+        if(i=5) {
+            return arr.promise;
+        }
+    }).catch(function(error){
+       console.log('error for async1');
+    });
+    async2.then(function(){
+        i += 1;
+        if(i=5) {
+            return arr.promise;
+        }
+    }).catch(function(error){
+        console.log('error for async2');
+    });
+    async3.then(function(){
+        i += 1;
+        if(i=5) {
+            return arr.promise;
+        }
+    }).catch(function(error){
+        console.log('error for async3');
+    });
+    async4.then(function(){
+        i += 1;
+        if(i=5) {
+            return arr.promise;
+        }
+    }).catch(function(error){
+        console.log('error for async4');
+    });
+    async5.then(function(){
+        i += 1;if(i=5) {
+            return arr.promise;
+        }
+    }).catch(function(error){
+        console.log('error for async5');
+    });
+
+}
