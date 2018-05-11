@@ -62,6 +62,8 @@ function exercise_3() {
 
 		}).then(function (value) {
 			result_str += value;
+
+			console.log("done");
 			console.log(result_str);
 
 		}).catch(function (error) {
@@ -99,8 +101,9 @@ function exercise_4() {
                     result_str += (", " + values[i]);
                 }
             }
-            console.log(result_str);
             console.log("done");
+            console.log(result_str);
+
         }).catch(function (error) {
         	alert(error);
     	});
