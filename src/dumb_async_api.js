@@ -137,6 +137,7 @@ function async5()
 function async5promisified()
 {
     var deferred = q.defer();
+
     setTimeout(function(){
         deferred.resolve("async5");
     },5*Math.random());

@@ -14,3 +14,56 @@ var q = require("q");
  * @param {Array<Unresolved Promise>} promises
  * @returns {*|PromiseLike<any>}
  */
+function qAll(promiseArray) {
+    var deferred = q.defer();
+    var numPromises = 5;
+    var newArray = new Array(numPromises);
+    var i = 0;
+
+    promiseArray[i]
+        .then(function(element) {
+            newArray[i] = element;
+            i++;
+            return promiseArray[i];
+        })
+        .then(function(element){
+            newArray[i] = element;
+            i++;
+            return promiseArray[i];
+        })
+        .then(function(element){
+            newArray[i] = element;
+            i++;
+            return promiseArray[i];
+        })
+        .then(function(element){
+            newArray[i] = element;
+            i++;
+            return promiseArray[i];
+        })
+        .then(function(element){
+            newArray[i] = element;
+            deferred.resolve(newArray);
+        });
+    return deferred.promise;
+}
+
+(function() {
+    someArray = [];
+    someArray.push(s.async1promisified());
+    someArray.push(s.async2promisified());
+    someArray.push(s.async3promisified());
+    someArray.push(s.async4promisified());
+    someArray.push(s.async5promisified());
+
+    qAll(someArray).then(function(resultArray) {
+        var result_str = "";
+        resultArray.forEach(function(rElement) {
+           result_str = result_str + rElement + ', ';
+        });
+        console.log(result_str);
+    });
+})();
+
+
+
