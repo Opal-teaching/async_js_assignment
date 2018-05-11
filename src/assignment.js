@@ -40,7 +40,7 @@ function ex2(){
 function async1promisified(){
 	var deferred1 = q.defer();
 	setTimeout(function(){
-		deferred1.resolve(console.log('async1'));
+		deferred1.resolve('async1');
 	}, 5*Math.random());
 	return deferred1.promise;
 }
@@ -48,7 +48,7 @@ function async1promisified(){
 function async2promisified(){
     var deferred2 = q.defer();
     setTimeout(function(){
-        deferred2.resolve(console.log('async2'));
+        deferred2.resolve('async2');
     }, 5*Math.random());
     return deferred2.promise;
 }
@@ -56,7 +56,7 @@ function async2promisified(){
 function async3promisified(){
     var deferred3 = q.defer();
     setTimeout(function(){
-        deferred3.resolve(console.log('async3'));
+        deferred3.resolve('async3');
     }, 5*Math.random());
     return deferred3.promise;
 }
@@ -64,7 +64,7 @@ function async3promisified(){
 function async4promisified(){
     var deferred4 = q.defer();
     setTimeout(function(){
-        deferred4.resolve(console.log('async4'));
+        deferred4.resolve('async4');
     }, 5*Math.random());
     return deferred4.promise;
 }
@@ -72,7 +72,7 @@ function async4promisified(){
 function async5promisified(){
     var deferred5 = q.defer();
     setTimeout(function(){
-        deferred5.resolve(console.log('async5'));
+        deferred5.resolve('async5');
     }, 5*Math.random());
     return deferred5.promise;
 }
@@ -132,9 +132,7 @@ function ex4(){
     var values = ['async1', 'async2', 'async3', 'async4', 'async5'];
     var promiseArray = [async1promisified(),async2promisified(), async3promisified(), async4promisified(), async5promisified()];
     q.all(promiseArray).then(function(values){
-        console.log('here');
-        promiseArray.resolve(console.log(values));
-        console.log('here2');
+        console.log(values);
         console.log('done');
     });
 }
@@ -146,6 +144,9 @@ function ex4(){
  * printing to the console 'done' after they are all finished.
  **/
 
+function ex5() {
+
+}
 
 /**
  * Exercise 6:
