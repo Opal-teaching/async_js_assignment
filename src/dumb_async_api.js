@@ -5,11 +5,16 @@ var q = require("q");
  * @type {{async1: async1, async2: async2, async3: async3, async4: async4, async5: async5}}
  */
 module.exports = {
-	async1:async1,
-	async2:async2,
-	async3:async3,
-	async4:async4,
-	async5:async5
+    async1:async1,
+    async2:async2,
+    async3:async3,
+    async4:async4,
+    async5:async5,
+    async1promisified:async1promisified,
+    async2promisified:async2promisified,
+    async3promisified:async3promisified,
+    async4promisified:async4promisified,
+    async5promisified:async5promisified
 };
 
 /**
@@ -18,19 +23,20 @@ module.exports = {
  */
 function async1()
 {
-	setTimeout(function(){
-		console.log("async1");
-	},5*Math.random());
+    setTimeout(function(){
+        console.log("async1");
+    },5*Math.random());
 }
+
 /**
  * @name async2
  * @desc Dumb async function, prints "async2" randomly
  */
 function async2()
 {
-	setTimeout(function(){
-		console.log("async2");
-	},5*Math.random());
+    setTimeout(function(){
+        console.log("async2");
+    },5*Math.random());
 }
 /**
  * @name async3
@@ -38,9 +44,9 @@ function async2()
  */
 function async3()
 {
-	setTimeout(function(){
-		console.log("async3");
-	},5*Math.random());
+    setTimeout(function(){
+        console.log("async3");
+    },5*Math.random());
 }
 /**
  * @name async4
@@ -48,9 +54,9 @@ function async3()
  */
 function async4()
 {
-	setTimeout(function(){
-		console.log("async4");
-	},5*Math.random());
+    setTimeout(function(){
+        console.log("async4");
+    },5*Math.random());
 }
 /**
  * @name async5
@@ -58,9 +64,57 @@ function async4()
  */
 function async5()
 {
-	setTimeout(function(){
-		console.log("async5");
-	},5*Math.random());
+    setTimeout(function(){
+        console.log("async5");
+    },5*Math.random());
 }
 
+function async1promisified(){
+    var deferred  = q.defer();
 
+    setTimeout(function(){
+        deferred.resolve("async1");
+    }, 5*Math.random());
+
+    return deferred.promise;
+}
+
+function async2promisified(){
+    var deferred  = q.defer();
+
+    setTimeout(function(){
+        deferred.resolve("async2");
+    }, 5*Math.random());
+
+    return deferred.promise;
+}
+
+function async3promisified(){
+    var deferred  = q.defer();
+
+    setTimeout(function(){
+        deferred.resolve("async3");
+    }, 5*Math.random());
+
+    return deferred.promise;
+}
+
+function async4promisified(){
+    var deferred  = q.defer();
+
+    setTimeout(function(){
+        deferred.resolve("async4");
+    }, 5*Math.random());
+
+    return deferred.promise;
+}
+
+function async5promisified(){
+    var deferred  = q.defer();
+
+    setTimeout(function(){
+        deferred.resolve("async5");
+    }, 5*Math.random());
+
+    return deferred.promise;
+}
