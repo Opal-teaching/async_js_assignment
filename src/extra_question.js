@@ -28,47 +28,38 @@ function qAll(promises){
     // Initialize a values array for the results of the promises.
     var values = Array(numPromises);
 
-    /*
-promises[0].then(function (value) {
-    console.log("done0");
-});
-*/
-
     // Iterate through all the unresolved promises to set their .then function
     for (var i=0; i<numPromises; i++){
-console.log("ping1");
+
         // Wrap in a closure to create a new scope for each iteration with a different i
         (function(i) {
-console.log(i);
+
             promises[i]
                 .then(function (value) {
+
+                    // Add the value to the return array
                     values.splice(i, 1, value);
                     numPromisesComplete++;
-console.log(numPromisesComplete);
+
+                    // Check if we are done
+                    if(numPromisesComplete === numPromises) {
+                        deferred.resolve(values);
+                    }
                 }).catch(function (error) {
+
+                    // Add the value to the return array
                     values.splice(i, 1, error);
                     numPromisesComplete++;
-console.log(numPromisesComplete);
+
+                    // Check if we are done
+                    if(numPromisesComplete === numPromises) {
+                        deferred.resolve(values);
+                    }
                 });
 
         })(i);
     }
-
-    //while(numPromisesComplete<numPromises){/*console.log(numPromisesComplete)*/} // Wait for all the promises to complete.
-
-    // Check every 100 ms to see if the promises are all done.
-    var int = setInterval(function(){
-console.log("check");
-console.log(numPromisesComplete +" "+numPromises);
-        if(numPromisesComplete >= numPromises){
-console.log("in");
-
-            clearInterval(int);
-        }
-    }, 500);
-
-    deferred.resolve(values);
-    return deferred;
+    return deferred.promise;
 }
 
 // Function to test qall
@@ -83,9 +74,7 @@ function exercise_7(){
     promiseArray.push(s.async4promisified());
     promiseArray.push(s.async5promisified());
 
-    qAll(promiseArray).then(function (values) {});
-
-    /*qAll(promiseArray)
+    qAll(promiseArray)
         .then(function (values) {
             for (let i = 0; i < values.length; i++) {
                 if (i === 0) {
@@ -95,9 +84,10 @@ function exercise_7(){
                     result_str += (", " + values[i]);
                 }
             }
-            console.log(result_str);
             console.log("done");
+            console.log(result_str);
+
         }).catch(function (error) {
             alert(error);
-        });*/
+        });
 }
