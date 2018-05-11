@@ -7,6 +7,15 @@ var q = require("q"); // Promises package Node.js
 *    control over them at the moment.
 **/
 
+function exercise1(){
+    dumb_async_api.async1();
+    dumb_async_api.async2();
+    dumb_async_api.async3();
+    dumb_async_api.async4();
+    dumb_async_api.async5();
+}
+
+
 
 /**
 * Exercise 2:
@@ -27,7 +36,30 @@ var q = require("q"); // Promises package Node.js
  * Note: If you want to catch the error with only one catch clause,
  * return the next promise as you progress through the promises.
  **/
-var result_str = "";
+
+function exercise3(){
+    var result_str = "";
+    dumb_async_api.async1promisified().then(function(resolve) {
+        result_str = result_str + resolve + ", ";
+        return dumb_async_api.async2promisified();
+    }).then(function(resolve) {
+        result_str = result_str + resolve + ", ";
+        return dumb_async_api.async3promisified();
+    }).then(function(resolve) {
+        result_str = result_str + resolve + ", ";
+        return dumb_async_api.async4promisified();
+    }).then(function(resolve) {
+        result_str = result_str + resolve + ", ";
+        return dumb_async_api.async5promisified();
+    }).then(function(resolve) {
+        result_str = result_str + resolve;
+    }).then(function(resolve){
+        console.log(result_str);
+    });
+}
+
+
+
 /**
  * Exercise 4:
  * Use your current promisify API functions,
@@ -36,6 +68,18 @@ var result_str = "";
  * print 'done', at the end.
  * Expected Output: "async1, async2, async3, async4, async5"
  **/
+function exercise4(){
+    var promise1 = dumb_async_api.async1promisified();
+    var promise2 = dumb_async_api.async2promisified();
+    var promise3 = dumb_async_api.async3promisified();
+    var promise4 = dumb_async_api.async4promisified();
+    var promise5 = dumb_async_api.async5promisified();
+
+    q.all([promise1, promise2,promise3,promise4,promise5]).then(data => {
+        console.log(data);
+    }).then(data => console.log('done'));
+}
+
 
 /**
  * Exercise 5:
@@ -44,12 +88,41 @@ var result_str = "";
  * printing to the console 'done' after they are all finished.
  **/
 
+function exercise5(){
+    var result_str = "";
+    var promise2 = dumb_async_api.async2promisified();
+    var promise3 = dumb_async_api.async3promisified();
+    var promise4 = dumb_async_api.async4promisified();
+    var promise5 = dumb_async_api.async5promisified();
+    dumb_async_api.async1promisified().then(function(resolve){
+        result_str = result_str + resolve + ", ";
+        return q.all([promise2,promise3,promise4,promise5]);
+    }).then(data => {
+        result_str = result_str + data;
+        console.log(result_str);
+    }).then(data => console.log('done'));
+}
+
 
 /**
  * Exercise 6:
  *  Call the function below, twice, for the error and success cases, and apply the then/catch clause to print
  *  the result, in the case of error, print error to the console.
  */
+function exercise6(){
+    async6promisified(5).then((resolve)=>{
+        console.log(resolve);
+        return async6promisified(15);
+    }).then((resolve)=>{
+        console.log(resolve);
+    }).catch((err)=>{
+        console.log(err.message);
+    });
+}
+
+
+
+
 /**
  * @name async6promisified
  * @desc Async function, rejects error randomly, given a parameter
@@ -68,3 +141,9 @@ function async6promisified(param)
 }
 
 
+// DRIVER
+// exercise1();
+// exercise3();
+// exercise4();
+// exercise5();
+// exercise6();

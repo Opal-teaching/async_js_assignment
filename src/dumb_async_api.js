@@ -9,7 +9,12 @@ module.exports = {
 	async2:async2,
 	async3:async3,
 	async4:async4,
-	async5:async5
+	async5:async5,
+	async1promisified:async1promisified,
+    async2promisified:async2promisified,
+	async3promisified:async3promisified,
+	async4promisified:async4promisified,
+    async5promisified:async5promisified,
 };
 
 /**
@@ -21,6 +26,7 @@ function async1()
 	setTimeout(function(){
 		console.log("async1");
 	},5*Math.random());
+	return 1;
 }
 /**
  * @name async2
@@ -64,3 +70,52 @@ function async5()
 }
 
 
+function async1promisified() {
+    var deferred = q.defer();
+
+    setTimeout(function(){
+            deferred.resolve("async1");
+    },5*Math.random());
+
+    return deferred.promise;
+}
+
+function async2promisified() {
+    var deferred = q.defer();
+
+    setTimeout(function(){
+        deferred.resolve("async2");
+    },5*Math.random());
+
+    return deferred.promise;
+}
+
+function async3promisified() {
+    var deferred = q.defer();
+
+    setTimeout(function(){
+        deferred.resolve("async3");
+    },5*Math.random());
+
+    return deferred.promise;
+}
+
+function async4promisified() {
+    var deferred = q.defer();
+
+    setTimeout(function(){
+        deferred.resolve("async4");
+    },5*Math.random());
+
+    return deferred.promise;
+}
+
+function async5promisified() {
+    var deferred = q.defer();
+
+    setTimeout(function(){
+        deferred.resolve("async5");
+    },5*Math.random());
+
+    return deferred.promise;
+}
