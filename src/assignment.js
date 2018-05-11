@@ -5,7 +5,8 @@ var q = require("q"); // Promises package Node.js
 // ex1();
 // ex2();
 // ex3();
-ex4();
+// ex4();
+ex5();
 
 /* Exercise: 1
 *    Execute all the functions offered by the 'dumb_async_api' module a
@@ -129,7 +130,6 @@ function ex3(){
  **/
 
 function ex4(){
-    var values = ['async1', 'async2', 'async3', 'async4', 'async5'];
     var promiseArray = [async1promisified(),async2promisified(), async3promisified(), async4promisified(), async5promisified()];
     q.all(promiseArray).then(function(values){
         console.log(values);
@@ -145,7 +145,13 @@ function ex4(){
  **/
 
 function ex5() {
-
+    async1promisified().then(function(value){
+        console.log(value);
+        q.all([async2promisified(),async3promisified(),async4promisified(),async5promisified()]).then(function(values){
+            console.log(values);
+            console.log('done');
+        });
+    });
 }
 
 /**
