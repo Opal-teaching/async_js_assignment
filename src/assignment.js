@@ -1,8 +1,11 @@
 var dumb_async_api = require("./dumb_async_api"); // Async API
 var q = require("q"); // Promises package Node.js
+
+/** Execute the following functions corresponding to the exercises and look at the results in the console **/
 // ex1();
 // ex2();
-ex3();
+// ex3();
+ex4();
 
 /* Exercise: 1
 *    Execute all the functions offered by the 'dumb_async_api' module a
@@ -126,7 +129,14 @@ function ex3(){
  **/
 
 function ex4(){
-
+    var values = ['async1', 'async2', 'async3', 'async4', 'async5'];
+    var promiseArray = [async1promisified(),async2promisified(), async3promisified(), async4promisified(), async5promisified()];
+    q.all(promiseArray).then(function(values){
+        console.log('here');
+        promiseArray.resolve(console.log(values));
+        console.log('here2');
+        console.log('done');
+    });
 }
 
 /**
