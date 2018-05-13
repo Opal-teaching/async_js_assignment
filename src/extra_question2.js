@@ -7,7 +7,7 @@
   */
 
  // PICK WHAT TO RUN HERE
- async();
+ exercise_9();
 
  // A frame containing the function async() is pushed onto the stack.
  // Stack: async
@@ -77,18 +77,31 @@
  * If an error occurs, print the error message through error.message. before rejecting the promise
  * If sucessful print, "Ok"
  */
-/*
 
-var MyEventEmitter = require('./myEmitter');
-const myEmitter = new MyEventEmitter();
-// TODO: Create a function that promisifies the event listener.
-// 
-// 
-myEmitter.on('event', function(error, data){
-    // Handle 
-});
-myEmitter.emit('event',null,{"message":"Hello!"}); 
-myEmitter.emit('event',new Error("An error occurred"),null);
+function exercise_9() {
 
-*/
+    var MyEventEmitter = require('./myEmitter');
+    const myEmitter = new MyEventEmitter();
+    // TODO: Create a function that promisifies the event listener.
+
+
+    myEmitter.on('event', function (error, data) {
+        // Handle
+        return new Promise(function(resolve, reject) {
+
+            if(error === null){
+                console.log("Ok");
+                resolve(data);
+            }
+            else{
+                console.log(error.message);
+                reject(error);
+            }
+
+        });
+    });
+
+    var p1 = myEmitter.emit('event', null, {"message": "Hello!"});
+    var p2 = myEmitter.emit('event', new Error("An error occurred"), null);
+}
 
