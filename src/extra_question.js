@@ -37,7 +37,7 @@ function qAll(a, b, c, d, e) {
     a.then(function(){
         i += 1;
         console.log(i);
-        if(i=5) {
+        if(i===5) {
             return arr.promise;
         }
     }).catch(function(error){
@@ -46,7 +46,7 @@ function qAll(a, b, c, d, e) {
     b.then(function(){
         i += 1;
         console.log(i);
-        if(i=5) {
+        if(i===5) {
             return arr.promise;
         }
     }).catch(function(error){
@@ -55,7 +55,7 @@ function qAll(a, b, c, d, e) {
     c.then(function(){
         i += 1;
         console.log(i);
-        if(i=5) {
+        if(i===5) {
             return arr.promise;
         }
     }).catch(function(error){
@@ -64,7 +64,7 @@ function qAll(a, b, c, d, e) {
     d.then(function(){
         i += 1;
         console.log(i);
-        if(i=5) {
+        if(i===5) {
             return arr.promise;
         }
     }).catch(function(error){
@@ -73,7 +73,7 @@ function qAll(a, b, c, d, e) {
     e.then(function(){
         i += 1;
         console.log(i);
-        if(i=5) {
+        if(i===5) {
             return arr.promise;
         }
     }).catch(function(error){
