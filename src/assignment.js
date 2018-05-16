@@ -1,4 +1,5 @@
 var dumb_async_api = require("./dumb_async_api"); // Async API
+var extra_question = require("./extra_question"); // Async API
 var q = require("q"); // Promises package Node.js
 
 /* Exercise: 1
@@ -6,6 +7,7 @@ var q = require("q"); // Promises package Node.js
 *    few times, the order is irrelevant and we don't care about
 *    control over them at the moment.
 **/
+
 
 dumb_async_api.async1();
 dumb_async_api.async2();
@@ -57,7 +59,7 @@ function ex3(){
 		})
 }
 
-ex3();
+//ex3();
 
 /**
  * Exercise 4:
@@ -76,7 +78,7 @@ function ex4(){
     promiseArray.push(dumb_async_api.async4promisified());
     promiseArray.push(dumb_async_api.async5promisified());
     return q.all(promiseArray).then(function(results){
-        var ans = ''
+        var ans = '';
         results.forEach(function(element,index){
     		ans += element + ', ';
 		});
@@ -114,7 +116,7 @@ function ex5(){
 		})
 }
 
-ex5();
+//ex5();
 
 /**
  * Exercise 6:
@@ -154,4 +156,4 @@ function ex6(){
 	call(errorValue);
 }
 
-ex6();
+//ex6();
