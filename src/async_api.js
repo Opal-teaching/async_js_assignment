@@ -1,7 +1,7 @@
-var q = require("q");
+let q = require('q');
 
 /**
- * @namespace dumb_async_api
+ * @namespace async_api
  * @type {{async1: async1, async2: async2, async3: async3, async4: async4, async5: async5}}
  */
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
 	async2:async2,
 	async3:async3,
 	async4:async4,
-	async5:async5
+	async5:async5,
 };
 
 /**
@@ -22,6 +22,7 @@ function async1()
 		console.log("async1");
 	},5*Math.random());
 }
+
 /**
  * @name async2
  * @desc Dumb async function, prints "async2" randomly
@@ -32,6 +33,7 @@ function async2()
 		console.log("async2");
 	},5*Math.random());
 }
+
 /**
  * @name async3
  * @desc Dumb async function, prints "async3" randomly
@@ -42,6 +44,7 @@ function async3()
 		console.log("async3");
 	},5*Math.random());
 }
+
 /**
  * @name async4
  * @desc Dumb async function, prints "async4" randomly
@@ -52,6 +55,7 @@ function async4()
 		console.log("async4");
 	},5*Math.random());
 }
+
 /**
  * @name async5
  * @desc Dumb async function, prints "async5" randomly
@@ -62,5 +66,3 @@ function async5()
 		console.log("async5");
 	},5*Math.random());
 }
-
-
